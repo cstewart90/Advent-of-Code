@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-aocd = "^0.1"
+numpy = "^1.24.0"
+advent-of-code-data = "^1.3.2"
 
 
 [build-system]
