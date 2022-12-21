@@ -2,9 +2,9 @@
 --- Day 1: Calorie Counting ---
 https://adventofcode.com/2022/day/1
 """
-from pathlib import Path
+import aocd
 
-data = (Path(__file__).parents[1] / "input" / "01.txt").read_text()
+data = aocd.get_data(day=1, year=2022)
 
 elf_cals: list[int] = []
 for d in data.split("\n\n"):

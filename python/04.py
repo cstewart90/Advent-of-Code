@@ -2,9 +2,9 @@
 --- Day 4: Camp Cleanup ---
 https://adventofcode.com/2022/day/4
 """
-from pathlib import Path
+import aocd
 
-data = (Path(__file__).parents[1] / "input" / "04.txt").read_text()
+data = aocd.get_data(day=4, year=2022)
 
 part1 = 0
 part2 = 0

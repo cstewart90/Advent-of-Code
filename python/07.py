@@ -3,10 +3,14 @@
 https://adventofcode.com/2022/day/7
 """
 from collections import defaultdict
-from pathlib import Path, PurePosixPath
+from pathlib import PurePosixPath
+
+import aocd
+
+data = aocd.get_data(day=7, year=2022)
 
 
-def populate_dirs(data):
+def populate_dirs():
     dirs = defaultdict(int)
     path = PurePosixPath()
     for line in data.splitlines():
@@ -23,8 +27,7 @@ def populate_dirs(data):
 
 
 def main():
-    data = (Path(__file__).parents[1] / "input" / "07.txt").read_text()
-    dirs = populate_dirs(data)
+    dirs = populate_dirs()
 
     part1 = sum(d for d in dirs.values() if d <= 100_000)
     print(f"Part One: {part1}")

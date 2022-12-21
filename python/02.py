@@ -2,9 +2,9 @@
 --- Day 2: Rock Paper Scissors ---
 https://adventofcode.com/2022/day/2
 """
-from pathlib import Path
+import aocd
 
-data = (Path(__file__).parents[1] / "input" / "02.txt").read_text()
+data = aocd.get_data(day=2, year=2022)
 
 # X is Rock, Y is Paper, Z is Scissors
 points = {"X": 1, "Y": 2, "Z": 3}

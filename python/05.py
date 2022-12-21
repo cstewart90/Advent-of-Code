@@ -3,9 +3,10 @@
 https://adventofcode.com/2022/day/5
 """
 import copy
-from pathlib import Path
 
-data = (Path(__file__).parents[1] / "input" / "05.txt").read_text()
+import aocd
+
+data = aocd.get_data(day=5, year=2022)
 
 
 def move_crates(stacks: list[list[str]], moves: list[str], part2=False) -> str:

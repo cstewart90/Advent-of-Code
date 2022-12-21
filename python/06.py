@@ -2,7 +2,9 @@
 --- Day 6: Tuning Trouble ---
 https://adventofcode.com/2022/day/6
 """
-from pathlib import Path
+import aocd
+
+data = aocd.get_data(day=6, year=2022)
 
 
 def part1(signal: str):
@@ -22,7 +24,6 @@ def part2(signal: str):
 
 
 def main():
-    data = (Path(__file__).parents[1] / "input" / "06.txt").read_text()
     print(f"Part One: {part1(data)}")
     print(f"Part Two: {part2(data)}")
 

@@ -2,9 +2,9 @@
 --- Day 3: Rucksack Reorganization ---
 https://adventofcode.com/2022/day/3
 """
-from pathlib import Path
+import aocd
 
-data = (Path(__file__).parents[1] / "input" / "03.txt").read_text()
+data = aocd.get_data(day=3, year=2022)
 
 
 def part1(rucksacks: list[str]) -> int:
