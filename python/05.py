@@ -8,29 +8,17 @@ from pathlib import Path
 data = (Path(__file__).parents[1] / "input" / "05.txt").read_text()
 
 
-def part1(stacks: list[list[str]], moves: list[str]) -> str:
+def move_crates(stacks: list[list[str]], moves: list[str], part2=False) -> str:
     for move in moves:
-        m = [int(i) for i in move.split() if i.isdigit()]
-        amount = m[0]
-        s1 = stacks[m[1] - 1]
-        s2 = stacks[m[2] - 1]
+        amount, src, dest = [int(i) for i in move.split() if i.isdigit()]
+        src -= 1
+        dest -= 1
 
-        s2.extend(reversed(s1[-amount:]))
-        del s1[-amount:]
+        stacks[src], c = stacks[src][:-amount], stacks[src][-amount:]
 
-    top = [i[-1] for i in stacks if i]
-    return "".join(top)
-
-
-def part2(stacks: list[list[str]], moves: list[str]) -> str:
-    for move in moves:
-        m = [int(i) for i in move.split() if i.isdigit()]
-        amount = m[0]
-        s1 = stacks[m[1] - 1]
-        s2 = stacks[m[2] - 1]
-
-        s2.extend(s1[-amount:])
-        del s1[-amount:]
+        if not part2:
+            c.reverse()
+        stacks[dest].extend(c)
 
     top = [i[-1] for i in stacks if i]
     return "".join(top)
@@ -44,15 +32,15 @@ def main():
     num_stacks = int(crates[-1].strip().split(" ")[-1])
     stacks1: list[list[str]] = [[] for _ in range(num_stacks)]
 
-    for l in reversed(crates[:-1]):
+    for crate in reversed(crates[:-1]):
         for i, stack in enumerate(stacks1):
             pos = i * 4 + 1
-            if l[pos].isalpha():
-                stack.append(l[pos])
+            if crate[pos].isalpha():
+                stack.append(crate[pos])
     stacks2 = copy.deepcopy(stacks1)
 
-    print(f"Part One: {part1(stacks1, moves)}")
-    print(f"Part Two: {part2(stacks2, moves)}")
+    print(f"Part One: {move_crates(stacks1, moves)}")
+    print(f"Part Two: {move_crates(stacks2, moves, part2=True)}")
 
 
 if __name__ == "__main__":
