@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "advent-of-code-2022"
+version = "0.1.0"
+description = "Solutions for Advent of Code 2022 in Python"
+authors = ["Chris Stewart <cstewart90@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aocd = "^0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
