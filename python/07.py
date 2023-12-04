@@ -10,7 +10,7 @@ import aocd
 data = aocd.get_data(day=7, year=2022)
 
 
-def populate_dirs():
+def populate_dirs() -> defaultdict[PurePosixPath, int]:
     dirs = defaultdict(int)
     path = PurePosixPath()
     for line in data.splitlines():
